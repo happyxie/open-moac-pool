@@ -18,7 +18,7 @@ Request looks like:
 {
   "id": 1,
   "jsonrpc": "2.0",
-  "method": "eth_submitLogin",
+  "method": "mc_submitLogin",
   "params": ["mfyPXKgjd5YuQDidqrbhpiaFS6MsRyE"]
 }
 ```
@@ -29,7 +29,7 @@ Request can include additional 2nd param (email for example):
 {
   "id": 1,
   "jsonrpc": "2.0",
-  "method": "eth_submitLogin",
+  "method": "mc_submitLogin",
   "params": ["mfyPXKgjd5YuQDidqrbhpiaFS6MsRyE", "admin@example.net"]
 }
 ```
@@ -51,7 +51,7 @@ Exceptions:
 Request looks like:
 
 ```javascript
-{ "id": 1, "jsonrpc": "2.0", "method": "eth_getWork" }
+{ "id": 1, "jsonrpc": "2.0", "method": "mc_getWork" }
 ```
 
 Successful response:
@@ -97,7 +97,7 @@ Request looks like:
 {
   "id": 1,
   "jsonrpc": "2.0",
-  "method": "eth_submitWork",
+  "method": "mc_submitWork",
   "params": [
     "0xe05d1fd4002d962f",
     "0x6c872e2304cd1e64b553a65387d7383470f22331aff288cbce5748dc430f016a",
@@ -136,7 +136,7 @@ Pool MAY return exception on invalid share submission usually followed by tempor
 
 ## Submit Hashrate
 
-`eth_submitHashrate` is a nonsense method. Pool ignores it and the reply is always:
+`mc_submitHashrate` is a nonsense method. Pool ignores it and the reply is always:
 
 ```javascript
 { "id": 1, "jsonrpc": "2.0", "result": true }

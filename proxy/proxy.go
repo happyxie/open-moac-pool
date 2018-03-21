@@ -231,14 +231,14 @@ func (cs *Session) handleMessage(s *ProxyServer, r *http.Request, req *JSONRpcRe
 
 	// Handle RPC methods
 	switch req.Method {
-	case "eth_getWork":
+	case "mc_getWork":
 		reply, errReply := s.handleGetWorkRPC(cs)
 		if errReply != nil {
 			cs.sendError(req.Id, errReply)
 			break
 		}
 		cs.sendResult(req.Id, &reply)
-	case "eth_submitWork":
+	case "mc_submitWork":
 		if req.Params != nil {
 			var params []string
 			err := json.Unmarshal(req.Params, &params)
@@ -258,10 +258,10 @@ func (cs *Session) handleMessage(s *ProxyServer, r *http.Request, req *JSONRpcRe
 			errReply := &ErrorReply{Code: -1, Message: "Malformed request"}
 			cs.sendError(req.Id, errReply)
 		}
-	case "eth_getBlockByNumber":
+	case "mc_getBlockByNumber":
 		reply := s.handleGetBlockByNumberRPC()
 		cs.sendResult(req.Id, reply)
-	case "eth_submitHashrate":
+	case "mc_submitHashrate":
 		cs.sendResult(req.Id, true)
 	default:
 		errReply := s.handleUnknownRPC(cs, req.Method)

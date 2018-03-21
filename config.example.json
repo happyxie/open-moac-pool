@@ -1,6 +1,6 @@
 {
 	"threads": 2,
-	"coin": "eth",
+	"coin": "moac",
 	"name": "main",
 
 	"proxy": {

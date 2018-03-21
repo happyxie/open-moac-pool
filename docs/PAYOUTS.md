@@ -21,7 +21,7 @@ If any of checks fails, module will not even try to continue.
 If payments can't be locked (another lock exist, usually after a failure) module will halt payouts.
 
 * Deduct balance of a miner and log pending payment
-* Submit a transaction to a node via `eth_sendTransaction`
+* Submit a transaction to a node via `mc_sendTransaction`
 
 **If transaction submission fails, payouts will remain locked and halted in erroneous state.**
 
@@ -44,7 +44,7 @@ Payout module will fetch all rows from Redis with key `eth:payments:pending` and
 
 If you see `No pending payments to resolve` we have no data about failed debits.
 
-If there was a debit operation performed which is not followed by actual money transfer (after `eth_sendTransaction` returned an error), you will likely see:
+If there was a debit operation performed which is not followed by actual money transfer (after `mc_sendTransaction` returned an error), you will likely see:
 
 ```
 Will credit back following balances:
