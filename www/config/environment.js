@@ -15,7 +15,7 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//moacpool.tk:8080',
+      ApiUrl: '//moacpool.tk/',
 
       // HTTP mining endpoint
       HttpHost: 'http://moacpool.tk',
