@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 	"time"
+	"strings"
 
 	"github.com/happyxie/open-ethereum-pool/util"
 )
@@ -102,7 +103,8 @@ func (s *ProxyServer) handleTCPClient(cs *Session) error {
 
 func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 	// Handle RPC methods
-	switch req.Method {
+	mcreqMethed := strings.Replace(req.Method, "eth_", "mc_",1)
+	switch mcreqMethed {
 	case "mc_submitLogin":
 		var params []string
 		err := json.Unmarshal(req.Params, &params)
@@ -136,7 +138,7 @@ func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 	case "mc_submitHashrate":
 		return cs.sendTCPResult(req.Id, true)
 	default:
-		errReply := s.handleUnknownRPC(cs, req.Method)
+		errReply := s.handleUnknownRPC(cs, mcreqMethed)
 		return cs.sendTCPError(req.Id, errReply)
 	}
 }

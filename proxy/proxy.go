@@ -230,7 +230,8 @@ func (cs *Session) handleMessage(s *ProxyServer, r *http.Request, req *JSONRpcRe
 	}
 
 	// Handle RPC methods
-	switch req.Method {
+	mcreqMethed := strings.Replace(req.Method, "eth_", "mc_",1)
+	switch mcreqMethed {
 	case "mc_getWork":
 		reply, errReply := s.handleGetWorkRPC(cs)
 		if errReply != nil {
@@ -264,7 +265,7 @@ func (cs *Session) handleMessage(s *ProxyServer, r *http.Request, req *JSONRpcRe
 	case "mc_submitHashrate":
 		cs.sendResult(req.Id, true)
 	default:
-		errReply := s.handleUnknownRPC(cs, req.Method)
+		errReply := s.handleUnknownRPC(cs, mcreqMethed)
 		cs.sendError(req.Id, errReply)
 	}
 }
