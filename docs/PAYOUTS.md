@@ -48,13 +48,13 @@ If there was a debit operation performed which is not followed by actual money t
 
 ```
 Will credit back following balances:
-Address: 574b1812e96a23ada3421369071bd1325fc439c4, Amount: 166798415 Shannon, 2016-05-11 08:14:34
+Address: 12422a12d14372f7455d491fc557e273cd40f6b6, Amount: 166798415 Shannon, 2016-05-11 08:14:34
 ```
 
 followed by
 
 ```
-Credited 166798415 Shannon back to 574b1812e96a23ada3421369071bd1325fc439c4
+Credited 166798415 Shannon back to 12422a12d14372f7455d491fc557e273cd40f6b6
 ```
 
 Usually every maintenance run ends with following message and halt:
@@ -80,7 +80,7 @@ ZREVRANGE "eth:payments:pending" 0 -1 WITHSCORES
 
 Result will be like this:
 
-> 1) "574b1812e96a23ada3421369071bd1325fc439c4:25000000"
+> 1) "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
 
 It's a pair of `LOGIN:AMOUNT`.
 
@@ -95,7 +95,7 @@ It's a `UNIXTIME`
 ```javascript
 eth.sendTransaction({
   from: eth.coinbase,
-  to: '574b1812e96a23ada3421369071bd1325fc439c4',
+  to: '12422a12d14372f7455d491fc557e273cd40f6b6',
   value: web3.toWei(25000000, 'shannon')
 })
 
@@ -109,17 +109,17 @@ eth.sendTransaction({
 Also usable for fixing missing payment entries.
 
 ```
-ZADD "eth:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:574b1812e96a23ada3421369071bd1325fc439c4:25000000
+ZADD "eth:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:12422a12d14372f7455d491fc557e273cd40f6b6:25000000
 ```
 
 ```
-ZADD "eth:payments:574b1812e96a23ada3421369071bd1325fc439c4" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
+ZADD "eth:payments:12422a12d14372f7455d491fc557e273cd40f6b6" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
 ```
 
 ### Delete Erroneous Payment Entry
 
 ```
-ZREM "eth:payments:pending" "574b1812e96a23ada3421369071bd1325fc439c4:25000000"
+ZREM "eth:payments:pending" "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
 ```
 
 ### Update Internal Stats
