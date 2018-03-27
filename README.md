@@ -1,4 +1,4 @@
-## Open Source Ethereum Mining Pool
+## Open Source Moac Mining Pool
 
 ![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
 
@@ -6,11 +6,11 @@
 
 ### Features
 
-**This pool is being further developed to provide an easy to use pool for Ethereum miners. This software is functional however an optimised release of the pool is expected soon. Testing and bug submissions are welcome!**
+**This pool is being further developed to provide an easy to use pool for Moac miners. This software is functional however an optimised release of the pool is expected soon. Testing and bug submissions are welcome!**
 
 * Support for HTTP and Stratum mining
 * Detailed block stats with luck percentage and full reward
-* Failover geth instances: geth high availability built in
+* Failover moac instances: moac high availability built in
 * Modern beautiful Ember.js frontend
 * Separate stats for workers: can highlight timed-out workers so miners can perform maintenance of rigs
 * JSON-API for stats
@@ -18,14 +18,14 @@
 #### Proxies
 
 * [Ether-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
-* [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Ethereum
+* [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Moac
 
 ### Building on Linux
 
 Dependencies:
 
   * go >= 1.9
-  * geth or parity
+  * moac or parity
   * redis-server >= 2.8.0
   * nodejs >= 4 LTS
   * nginx
@@ -37,15 +37,15 @@ First install  [go-ethereum](https://github.com/ethereum/go-ethereum/wiki/Instal
 Clone & compile:
 
     git config --global http.https://gopkg.in.followRedirects true
-    git clone https://github.com/happyxie/open-ethereum-pool.git
-    cd open-ethereum-pool
+    git clone https://github.com/happyxie/open-moac-pool.git
+    cd open-moac-pool
     make
 
 Install redis-server.
 
 ### Running Pool
 
-    ./build/bin/open-ethereum-pool config.json
+    ./build/bin/open-moac-pool config.json
 
 You can use Ubuntu upstart - check for sample config in <code>upstart.conf</code>.
 
@@ -105,7 +105,7 @@ otherwise you will get errors on start because of JSON comments.**
   // Set to the number of CPU cores of your server
   "threads": 2,
   // Prefix for keys in redis store
-  "coin": "eth",
+  "coin": "mc",
   // Give unique name to each instance
   "name": "main",
 
@@ -134,7 +134,7 @@ otherwise you will get errors on start because of JSON comments.**
       "maxConn": 8192
     },
 
-    // Try to get new job from geth in this interval
+    // Try to get new job from moac in this interval
     "blockRefreshInterval": "120ms",
     "stateUpdateInterval": "3s",
     // Require this share difficulty from miners
@@ -208,10 +208,10 @@ otherwise you will get errors on start because of JSON comments.**
     "purgeOnly": false
   },
 
-  // Check health of each geth node in this interval
+  // Check health of each moac node in this interval
   "upstreamCheckInterval": "5s",
 
-  /* List of geth nodes to poll for new jobs. Pool will try to get work from
+  /* List of moac nodes to poll for new jobs. Pool will try to get work from
     first alive one and check in background for failed to back up.
     Current block template of the pool is always cached in RAM indeed.
   */
@@ -237,7 +237,7 @@ otherwise you will get errors on start because of JSON comments.**
     "password": ""
   },
 
-  // This module periodically remits ether to miners
+  // This module periodically remits moac to miners
   "unlocker": {
     "enabled": false,
     // Pool fee percentage
@@ -254,9 +254,9 @@ otherwise you will get errors on start because of JSON comments.**
     "keepTxFees": false,
     // Run unlocker in this interval
     "interval": "10m",
-    // Geth instance node rpc endpoint for unlocking blocks
+    // Moac instance node rpc endpoint for unlocking blocks
     "daemon": "http://127.0.0.1:8545",
-    // Rise error if can't reach geth in this amount of time
+    // Rise error if can't reach moac in this amount of time
     "timeout": "10s"
   },
 
@@ -267,18 +267,18 @@ otherwise you will get errors on start because of JSON comments.**
     "requirePeers": 25,
     // Run payouts in this interval
     "interval": "12h",
-    // Geth instance node rpc endpoint for payouts processing
+    // Moac instance node rpc endpoint for payouts processing
     "daemon": "http://127.0.0.1:8545",
-    // Rise error if can't reach geth in this amount of time
+    // Rise error if can't reach moac in this amount of time
     "timeout": "10s",
     // Address with pool balance
     "address": "0x0",
-    // Let geth to determine gas and gasPrice
+    // Let moac to determine gas and gasPrice
     "autoGas": true,
     // Gas amount and price for payout tx (advanced users only)
     "gas": "21000",
     "gasPrice": "50000000000",
-    // Send payment only if miner's balance is >= 0.5 Ether
+    // Send payment only if miner's balance is >= 0.5 Moac
     "threshold": 500000000,
     // Perform BGSAVE on Redis after successful payouts session
     "bgsave": false
@@ -303,9 +303,9 @@ I recommend this deployment strategy:
 * Don't run payouts and unlocker modules as part of mining node. Create separate configs for both, launch independently and make sure you have a single instance of each module running.
 * If `poolFeeAddress` is not specified all pool profit will remain on coinbase address. If it specified, make sure to periodically send some dust back required for payments.
 
-### Alternative Ethereum Implementations
+### Alternative Moac Implementations
 
-This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/parity). Mining and block unlocking works, but I am not sure about payouts and suggest to run *official* geth node for payments.
+This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/parity). Mining and block unlocking works, but I am not sure about payouts and suggest to run *official* moac node for payments.
 
 ### Credits
 
@@ -317,7 +317,7 @@ Made by sammy007. Licensed under GPLv3. Modified by happyxpie.
 
 ### Donations
 
-ETH/ETC: 12422a12d14372f7455d491fc557e273cd40f6b6
+MOAC: 12422a12d14372f7455d491fc557e273cd40f6b6
 
 ![](https://cdn.pbrd.co/images/GP5tI1D.png)
 

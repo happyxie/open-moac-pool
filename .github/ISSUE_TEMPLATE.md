@@ -1,6 +1,6 @@
 #### System information
 
-Geth version: `geth version` or commit hash if `develop`
+Moac version: `moac version` or commit hash if `develop`
 
 Redis version: `redis-server --version`
 

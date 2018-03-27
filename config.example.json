@@ -1,6 +1,6 @@
 {
 	"threads": 2,
-	"coin": "moac",
+	"coin": "mc",
 	"name": "main",
 
 	"proxy": {
@@ -108,7 +108,7 @@
 	},
 
 	"newrelicEnabled": false,
-	"newrelicName": "MyEtherProxy",
+	"newrelicName": "MyMoacProxy",
 	"newrelicKey": "SECRET_KEY",
 	"newrelicVerbose": false
 }

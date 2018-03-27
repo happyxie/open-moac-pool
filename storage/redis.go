@@ -9,7 +9,7 @@ import (
 
 	"gopkg.in/redis.v3"
 
-	"github.com/happyxie/open-ethereum-pool/util"
+	"github.com/happyxie/open-moac-pool/util"
 )
 
 type Config struct {

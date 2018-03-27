@@ -10,7 +10,7 @@ import (
 	"time"
 	"strings"
 
-	"github.com/happyxie/open-ethereum-pool/util"
+	"github.com/happyxie/open-moac-pool/util"
 )
 
 const (

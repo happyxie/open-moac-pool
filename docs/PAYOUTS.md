@@ -36,11 +36,11 @@ After payout session, payment module will perform `BGSAVE` (background saving) o
 
 ## Resolving Failed Payments (automatic)
 
-If your payout is not logged and not confirmed by Ethereum network you can resolve it automatically. You need to payouts in maintenance mode by setting up `RESOLVE_PAYOUT=1` or `RESOLVE_PAYOUT=True` environment variable:
+If your payout is not logged and not confirmed by Moac network you can resolve it automatically. You need to payouts in maintenance mode by setting up `RESOLVE_PAYOUT=1` or `RESOLVE_PAYOUT=True` environment variable:
 
-`RESOLVE_PAYOUT=1 ./build/bin/open-ethereum-pool payouts.json`.
+`RESOLVE_PAYOUT=1 ./build/bin/open-moac-pool payouts.json`.
 
-Payout module will fetch all rows from Redis with key `eth:payments:pending` and credit balance back to miners. Usually you will have only single entry there.
+Payout module will fetch all rows from Redis with key `mc:payments:pending` and credit balance back to miners. Usually you will have only single entry there.
 
 If you see `No pending payments to resolve` we have no data about failed debits.
 
@@ -68,14 +68,14 @@ Unset `RESOLVE_PAYOUT=1` or run payouts with `RESOLVE_PAYOUT=0`.
 
 ## Resolving Failed Payment (manual)
 
-You can perform manual maintenance using `geth` and `redis-cli` utilities.
+You can perform manual maintenance using `moac` and `redis-cli` utilities.
 
 ### Check For Failed Transactions:
 
 Perform the following command in a `redis-cli`:
 
 ```
-ZREVRANGE "eth:payments:pending" 0 -1 WITHSCORES
+ZREVRANGE "mc:payments:pending" 0 -1 WITHSCORES
 ```
 
 Result will be like this:
@@ -93,8 +93,8 @@ It's a `UNIXTIME`
 **Make sure there is no TX sent using block explorer. Skip this step if payment actually exist in a blockchain.**
 
 ```javascript
-eth.sendTransaction({
-  from: eth.coinbase,
+mc.sendTransaction({
+  from: mc.coinbase,
   to: '12422a12d14372f7455d491fc557e273cd40f6b6',
   value: web3.toWei(25000000, 'shannon')
 })
@@ -109,30 +109,30 @@ eth.sendTransaction({
 Also usable for fixing missing payment entries.
 
 ```
-ZADD "eth:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:12422a12d14372f7455d491fc557e273cd40f6b6:25000000
+ZADD "mc:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:12422a12d14372f7455d491fc557e273cd40f6b6:25000000
 ```
 
 ```
-ZADD "eth:payments:12422a12d14372f7455d491fc557e273cd40f6b6" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
+ZADD "mc:payments:12422a12d14372f7455d491fc557e273cd40f6b6" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
 ```
 
 ### Delete Erroneous Payment Entry
 
 ```
-ZREM "eth:payments:pending" "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
+ZREM "mc:payments:pending" "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
 ```
 
 ### Update Internal Stats
 
 ```
-HINCRBY "eth:finances" pending -25000000
-HINCRBY "eth:finances" paid 25000000
+HINCRBY "mc:finances" pending -25000000
+HINCRBY "mc:finances" paid 25000000
 ```
 
 ### Unlock Payouts
 
 ```
-DEL "eth:payments:lock"
+DEL "mc:payments:lock"
 ```
 
 ## Resolving Missing Payment Entries

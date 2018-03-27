@@ -40,8 +40,16 @@
   </div>
   <div>
     <hr/>
+	<h4><a href="https://github.com/ethereum-mining/ethminer/releases">Ethminer:</a></h4>
     <h4 class="note note-info text-center">
-      ethminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/&lt;address&gt;/&lt;worker&gt; -G
+ <!--     ethminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/&lt;address&gt;/&lt;worker&gt; -G  -->
+	  ethminer.exe -S {{config.StratumHost}}:{{config.StratumPort}}  -SP 1 -O &lt;address&gt;/&lt;worker&gt; -G    <br>
+	  ethminer.exe -S {{config.StratumHost}}:{{config.StratumPort}}  -SP 1 -O &lt;address&gt;/&lt;worker&gt; -U
     </h4>
+	<h4><a href="https://bitcointalk.org/index.php?topic=1433925.0">Claymore's Dual Ethereum Miner:</a></h4>
+    <h4 class="note note-info text-center">
+ethdcrminer64 -epool stratum+tcp://{{config.StratumHost}}:{{config.StratumPort}} -ewal WALLETID -epsw x -allpools 1 -allcoins exp -gser 2 -eworker RIGNAME
+    </h4>
+	
   </div>
 </div>

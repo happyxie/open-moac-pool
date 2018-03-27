@@ -1,7 +1,7 @@
 {
-  "name": "open-ethereum-pool",
+  "name": "open-moac-pool",
   "version": "0.0.0",
-  "description": "Open Ethereum Pool",
+  "description": "Open Moac Pool",
   "private": true,
   "directories": {
     "doc": "doc",

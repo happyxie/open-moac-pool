@@ -13,10 +13,10 @@ import (
 
 	"github.com/yvasiyarov/gorelic"
 
-	"github.com/happyxie/open-ethereum-pool/api"
-	"github.com/happyxie/open-ethereum-pool/payouts"
-	"github.com/happyxie/open-ethereum-pool/proxy"
-	"github.com/happyxie/open-ethereum-pool/storage"
+	"github.com/happyxie/open-moac-pool/api"
+	"github.com/happyxie/open-moac-pool/payouts"
+	"github.com/happyxie/open-moac-pool/proxy"
+	"github.com/happyxie/open-moac-pool/storage"
 )
 
 var cfg proxy.Config

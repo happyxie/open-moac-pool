@@ -1,10 +1,10 @@
 package proxy
 
 import (
-	"github.com/happyxie/open-ethereum-pool/api"
-	"github.com/happyxie/open-ethereum-pool/payouts"
-	"github.com/happyxie/open-ethereum-pool/policy"
-	"github.com/happyxie/open-ethereum-pool/storage"
+	"github.com/happyxie/open-moac-pool/api"
+	"github.com/happyxie/open-moac-pool/payouts"
+	"github.com/happyxie/open-moac-pool/policy"
+	"github.com/happyxie/open-moac-pool/storage"
 )
 
 type Config struct {
