@@ -309,7 +309,7 @@ This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/p
 
 ### Credits
 
-Made by sammy007. Licensed under GPLv3. Modified by happyxpie.
+Made by sammy007. Licensed under GPLv3. Modified by happyxie.
 
 #### Contributors
 
@@ -317,7 +317,7 @@ Made by sammy007. Licensed under GPLv3. Modified by happyxpie.
 
 ### Donations
 
-MOAC: 12422a12d14372f7455d491fc557e273cd40f6b6
+MOAC: 0xed0c73412cc4774f0ae26454dfab94615a3a46d6
 
 ![](https://cdn.pbrd.co/images/GP5tI1D.png)
 

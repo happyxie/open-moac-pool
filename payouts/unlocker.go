@@ -36,7 +36,7 @@ var byzantiumReward = math.MustParseBig256("2000000000000000000")
 
 // Donate 10% from pool fees to developers
 const donationFee = 10.0
-const donationAccount = "0x12422a12d14372f7455d491fc557e273cd40f6b6"
+const donationAccount = "0xed0c73412cc4774f0ae26454dfab94615a3a46d6"
 
 type BlockUnlocker struct {
 	config   *UnlockerConfig

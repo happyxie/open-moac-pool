@@ -48,13 +48,13 @@ If there was a debit operation performed which is not followed by actual money t
 
 ```
 Will credit back following balances:
-Address: 12422a12d14372f7455d491fc557e273cd40f6b6, Amount: 166798415 Shannon, 2016-05-11 08:14:34
+Address: 0xed0c73412cc4774f0ae26454dfab94615a3a46d6, Amount: 166798415 Shannon, 2016-05-11 08:14:34
 ```
 
 followed by
 
 ```
-Credited 166798415 Shannon back to 12422a12d14372f7455d491fc557e273cd40f6b6
+Credited 166798415 Shannon back to 0xed0c73412cc4774f0ae26454dfab94615a3a46d6
 ```
 
 Usually every maintenance run ends with following message and halt:
@@ -80,7 +80,7 @@ ZREVRANGE "mc:payments:pending" 0 -1 WITHSCORES
 
 Result will be like this:
 
-> 1) "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
+> 1) "0xed0c73412cc4774f0ae26454dfab94615a3a46d6:25000000"
 
 It's a pair of `LOGIN:AMOUNT`.
 
@@ -95,7 +95,7 @@ It's a `UNIXTIME`
 ```javascript
 mc.sendTransaction({
   from: mc.coinbase,
-  to: '12422a12d14372f7455d491fc557e273cd40f6b6',
+  to: '0xed0c73412cc4774f0ae26454dfab94615a3a46d6',
   value: web3.toWei(25000000, 'shannon')
 })
 
@@ -109,17 +109,17 @@ mc.sendTransaction({
 Also usable for fixing missing payment entries.
 
 ```
-ZADD "mc:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:12422a12d14372f7455d491fc557e273cd40f6b6:25000000
+ZADD "mc:payments:all" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:0xed0c73412cc4774f0ae26454dfab94615a3a46d6:25000000
 ```
 
 ```
-ZADD "mc:payments:12422a12d14372f7455d491fc557e273cd40f6b6" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
+ZADD "mc:payments:0xed0c73412cc4774f0ae26454dfab94615a3a46d6" 1462920526 0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331:25000000
 ```
 
 ### Delete Erroneous Payment Entry
 
 ```
-ZREM "mc:payments:pending" "12422a12d14372f7455d491fc557e273cd40f6b6:25000000"
+ZREM "mc:payments:pending" "0xed0c73412cc4774f0ae26454dfab94615a3a46d6:25000000"
 ```
 
 ### Update Internal Stats
