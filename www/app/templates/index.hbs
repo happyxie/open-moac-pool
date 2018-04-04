@@ -54,7 +54,7 @@
     <h4 class="note note-info text-left">
 	Windows: EthDcrMiner64.exe -epool stratum+tcp://{{config.StratumHost}}:{{config.StratumPort}} -ewal WALLETID -epsw x -allpools 1 -allcoins exp -gser 2 -eworker RIGNAME <br>
     Linux: ./ethdcrminer64 -epool stratum+tcp://{{config.StratumHost}}:{{config.StratumPort}} -ewal WALLETID -epsw x -allpools 1 -allcoins exp -gser 2 -eworker RIGNAME <br>
-	Dual example: EthDcrMiner64.exe -epool moacpool.tk:8008 -ewal 0xb632a91ac557142b2ed45abf115639517019de5d -epsw x -dpool stratum+tcp://decred.mine.zpool.ca:5744 -dwal DskwPvFC69LHTn5S5ZwpiKag7SwaDKrPedz -dpsw x -allpools 1
+	Dual example: EthDcrMiner64.exe -epool {{config.StratumHost}}:{{config.StratumPort}} -ewal 0xb632a91ac557142b2ed45abf115639517019de5d -epsw x -dpool stratum+tcp://decred.mine.zpool.ca:5744 -dwal DskwPvFC69LHTn5S5ZwpiKag7SwaDKrPedz -dpsw x -allpools 1
     </h4>
 	
   </div>
