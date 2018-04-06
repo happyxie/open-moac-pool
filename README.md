@@ -25,14 +25,14 @@
 Dependencies:
 
   * go >= 1.9
-  * moac or parity
+  * moac 
   * redis-server >= 2.8.0
   * nodejs >= 4 LTS
   * nginx
 
 **I highly recommend to use Ubuntu 16.04 LTS.**
 
-First install  [go-ethereum](https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu).
+First install  [moac](https://github.com/MOACChain/moac-core/releases).
 
 Clone & compile:
 
@@ -57,7 +57,7 @@ The frontend is a single-page Ember.js application that polls the pool API to re
 
     cd www
 
-Change <code>ApiUrl: '//example.net/'</code> in <code>www/config/environment.js</code> to match your domain name. Also don't forget to adjust other options.
+Change <code>moacpool.tk</code> in <code>www/config/environment.js</code> to match your domain name. Also don't forget to adjust other options.
 
     npm install -g ember-cli@2.9.1
     npm install -g bower
