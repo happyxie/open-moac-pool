@@ -1,7 +1,7 @@
 {
 	"threads": 2,
 	"coin": "mc",
-	"name": "unlocker",
+	"name": "payout",
 
 	"proxy": {
 		"enabled": false,
